@@ -8,13 +8,13 @@
       "entry_time": "2026-10-07 23:49:00",
       "cost_usd": 5,
       "qty": 2.5e-07,
-      "current_price": 18517400.0,
+      "current_price": 18300973.0,
       "chain": "ethereum",
       "address": "0x1b54E762aa34CF6E28E9C082F2848e28E45DA6b8",
       "pairAddress": "0xfaa42866f7667e3a1a10d783f3b629171febd45f056336b8df766d74afc0f0f7",
       "match_note": "DexScreener search CLAUS: only pair near $19.8M MC (Ethereum, Uniswap v4 CLAUS/ETH, MC ~$19.7-20.1M, liq ~$726K, highest-liquidity pool of this token). Next-closest CLAUS was ~$2.3M on Base.",
       "price_basis": "market_cap",
-      "price_updated": "2026-10-08 04:47:05"
+      "price_updated": "2026-10-08 04:54:14"
     },
     {
       "id": "d1c733b7",
