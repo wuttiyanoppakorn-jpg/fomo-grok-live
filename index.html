@@ -1,0 +1,246 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FOMO x GROK — PAPER</title><style>
+*{box-sizing:border-box}html,body{margin:0;height:100%}
+body{background:#07080a;color:#e9ecef;font-family:"SFMono-Regular",Menlo,Consolas,"DejaVu Sans Mono",monospace;font-size:12px;
+background-image:radial-gradient(#ffffff08 1px,transparent 1px);background-size:4px 4px;display:flex;flex-direction:column}
+a{color:#7fb4ff;text-decoration:none}a:hover{text-decoration:underline}
+.top{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #1c1f25;gap:12px;flex-wrap:wrap}
+.logo{font-family:system-ui,sans-serif;font-weight:800;font-size:20px;display:flex;align-items:center;gap:10px}
+.logo .mk{width:28px;height:28px;background:#fff;color:#000;border-radius:7px;display:grid;place-items:center;font-size:14px}.logo .x{color:#777}
+.strip{display:flex;gap:16px;align-items:center;font-size:10px;letter-spacing:1.5px;color:#777;text-transform:uppercase;flex-wrap:wrap}.strip b{color:#fff;font-weight:600}
+.badge{background:#f5a623;color:#000;font-weight:800;padding:6px 12px;border-radius:3px;letter-spacing:2px;box-shadow:0 0 14px #f5a62388;font-size:11px}
+.live{display:inline-flex;align-items:center;gap:6px}.dot{width:8px;height:8px;border-radius:50%;background:#555}.dot.on{background:#39ff88;box-shadow:0 0 8px #39ff88;animation:p 1.6s infinite}.dot.off{background:#ff4d4d}
+@keyframes p{50%{opacity:.35}}
+.wrap{padding:12px 16px;flex:1;display:flex;flex-direction:column;gap:12px;min-height:0}
+.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.panel{background:#0e1014;border:1px solid #23262d;border-radius:4px;padding:12px}
+.lbl{font-size:10px;letter-spacing:1.8px;text-transform:uppercase;color:#7c828c}
+.v{font-family:system-ui,sans-serif;font-size:24px;font-weight:800;margin:6px 0 3px;color:#fff}.sub{font-size:10px;color:#666;letter-spacing:1px;text-transform:uppercase}
+.g{color:#39ff88!important}.r{color:#ff4d4d!important}.dim{color:#666}.y{color:#f5a623}
+.note{font-size:10px;color:#a08040;letter-spacing:1px;border:1px dashed #4a3b1c;padding:6px 10px;border-radius:3px;background:#140f05}
+.tabs{display:flex;gap:4px;border-bottom:1px solid #23262d}
+.tab{background:none;border:1px solid transparent;border-bottom:none;color:#7c828c;font:inherit;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:8px 14px;cursor:pointer;border-radius:4px 4px 0 0}
+.tab.on{color:#fff;background:#0e1014;border-color:#23262d}.tab .n{color:#f5a623;margin-left:6px}
+.view{display:none;flex:1;min-height:0}.view.on{display:flex}
+#v-pos{gap:12px}
+.list{width:300px;flex:none;display:flex;flex-direction:column;gap:8px;overflow:auto}
+.pc{background:#0e1014;border:1px solid #23262d;border-radius:4px;padding:10px 12px;cursor:pointer;position:relative}
+.pc:hover{border-color:#3a3f48}.pc.sel{border-color:#39ff88;box-shadow:0 0 12px #39ff8833}
+.pc .row{display:flex;justify-content:space-between;align-items:baseline}.pc .tk{font-family:system-ui,sans-serif;font-weight:800;font-size:16px}
+.pc .mv{font-family:system-ui,sans-serif;font-weight:800;font-size:16px}.pc .s{font-size:10px;color:#777;margin-top:4px;letter-spacing:.5px}
+.mini{height:4px;background:#1a1d22;border-radius:2px;margin-top:8px;position:relative;overflow:hidden}.mini i{position:absolute;top:0;bottom:0;left:0;background:linear-gradient(90deg,#ff4d4d,#f5a623,#39ff88)}
+.detail{flex:1;min-width:0;display:flex;flex-direction:column;gap:10px;overflow:auto}
+.dh{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.dh .t{font-family:system-ui,sans-serif;font-size:24px;font-weight:800}.dh .t small{font-size:12px;color:#777;font-weight:400;margin-left:8px;font-family:monospace}
+.chartbox{height:430px;background:#0b0d11;border:1px solid #23262d;border-radius:4px;overflow:hidden;position:relative}
+.chartbox iframe{width:100%;height:100%;border:0;position:relative;z-index:1}.chartbox .ph{position:absolute;inset:0;z-index:0;display:grid;place-items:center;color:#555;letter-spacing:2px;text-align:center;padding:20px}
+.stats{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.st{background:#0e1014;border:1px solid #23262d;border-radius:4px;padding:8px 10px;min-width:0}.st b{display:block;font-family:system-ui,sans-serif;font-size:15px;margin-top:4px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.prog{position:relative;height:14px;background:#1a1d22;border-radius:3px;margin:22px 0 22px;border:1px solid #2a2e37}
+.prog .z{position:absolute;top:0;bottom:0}.prog .mk{position:absolute;top:-6px;bottom:-6px;width:2px;background:#fff}
+.prog .lab{position:absolute;font-size:10px;white-space:nowrap;transform:translateX(-50%)}.prog .lab.u{top:-18px}.prog .lab.d{top:18px}
+.kv{display:grid;grid-template-columns:repeat(3,1fr);gap:4px 18px}.kv div{display:flex;justify-content:space-between;border-bottom:1px solid #1a1d22;padding:5px 0;gap:10px}.kv span:first-child{color:#7c828c;text-transform:uppercase;font-size:10px;letter-spacing:1px}
+.kv span:last-child{text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.warn{background:#2a0f0f;border:1px solid #5a1d1d;color:#ff8a8a;padding:6px 10px;border-radius:3px;font-size:11px;letter-spacing:1px;display:none}.warn.on{display:block}
+table{width:100%;border-collapse:collapse}td,th{padding:7px 6px;border-bottom:1px solid #1a1d22;text-align:left;white-space:nowrap}th{font-size:10px;letter-spacing:1.5px;color:#7c828c;font-weight:400;text-transform:uppercase}
+.rt{text-align:right}.full{flex:1;overflow:auto}
+.tag{font-size:10px;padding:1px 6px;border-radius:2px;letter-spacing:1px}.tBUY{background:#1d3b7a;color:#9cc0ff}.tTP{background:#0f3d24;color:#39ff88}.tSL{background:#4a1414;color:#ff6b6b}.tOTHER{background:#333}
+.empty{text-align:center;color:#555;letter-spacing:1.5px;padding:50px 10px;font-size:13px;white-space:normal}
+.foot{font-size:10px;color:#666;letter-spacing:1px;text-transform:uppercase;display:flex;gap:16px;flex-wrap:wrap}.foot b{color:#ccc;font-weight:500}
+@media(max-width:900px){.cards{grid-template-columns:repeat(2,1fr)}#v-pos{flex-direction:column}.list{width:auto;flex-direction:row;overflow-x:auto;flex:none}.list .pc{min-width:240px;flex:none}.stats{grid-template-columns:repeat(3,1fr)}.kv{grid-template-columns:1fr}.view{flex:none}.wrap{min-height:auto}.detail{overflow:visible}}
+@media(max-width:600px){body{font-size:11px}.top{padding:10px}.logo{font-size:17px}.strip{gap:8px 12px;font-size:9px;width:100%}.badge{order:-1;font-size:12px;padding:6px 10px}
+.wrap{padding:10px}.cards{grid-template-columns:1fr 1fr;gap:8px}.cards .panel:last-child{grid-column:1/-1}.v{font-size:19px}.panel{padding:10px}
+.tabs{overflow-x:auto;flex-wrap:nowrap}.tab{padding:8px 10px;white-space:nowrap;font-size:10px;letter-spacing:1px}
+.list{flex-direction:column;overflow:visible}.list .pc{min-width:0}.chartbox{height:340px}.stats{grid-template-columns:repeat(2,1fr)}.dh .t{font-size:20px}
+.prog .lab{font-size:9px}.kv span:last-child{max-width:62%}.full{overflow-x:auto}.note{font-size:9px}}
+</style></head><body>
+<div class="top"><div class="logo"><span class="mk">◐◑</span>FOMO <span class="x">×</span> GROK</div>
+<div class="strip"><span class="live"><span class="dot" id="dot"></span><b id="livetxt">CONNECTING</b></span><span>LAST RUN <b id="lastrun"></b></span><span>BOOKS <b id="books"></b></span><span>TP <b id="tpc"></b> / SL <b id="slc"></b></span><span class="badge">MODE: PAPER</span></div></div>
+<div class="wrap">
+<div class="cards" id="cards"></div>
+<div class="note">⚠ LIVE PRICES ON THIS PAGE ARE DISPLAY-ONLY. AUTHORITATIVE TP/SL EXITS ARE EXECUTED BY THE 5-MINUTE ROUTINE. PAPER MODE — NO REAL MONEY. P/L NET OF <span id="feec"></span>% FEE/SLIPPAGE EACH SIDE.</div>
+<div class="tabs"><button class="tab on" data-v="pos">Open positions<span class="n" id="n-pos"></span></button><button class="tab" data-v="closed">Closed trades<span class="n" id="n-closed"></span></button><button class="tab" data-v="act">Activity log<span class="n" id="n-act"></span></button><button class="tab" data-v="cfg">Config</button></div>
+<div class="view on" id="v-pos"><div class="list" id="list"></div><div class="detail" id="detail"></div></div>
+<div class="view" id="v-closed"><div class="panel full" id="closed"></div></div>
+<div class="view" id="v-act"><div class="panel full" id="act"></div></div>
+<div class="view" id="v-cfg"><div class="panel full" id="cfgv"></div></div>
+<div class="foot" id="foot"></div>
+</div>
+<script>
+const DATA = {"cfg": {"mode": "paper", "allowlist": ["@0xstanczyk", "@tjr", "@BTCwolf", "@unipcs", "@Nikkuu", "@frankdegods", "@smokey0x", "@frogmanhaha", "@0xAvast"], "size": {"type": "flat_usd", "usd_per_buy": 5}, "exits": {"take_profit_pct": 30, "stop_loss_pct": -15, "rule": "first match wins, measured from entry price"}, "risk_caps": null, "paper_fee_slippage_pct_each_side": 1, "timezone": "Asia/Bangkok", "paper_starting_balance_usd": 100}, "led": {"positions": [{"id": "6f8cac90", "token": "CLAUS", "trader": "@frankdegods", "entry_price": 19800000.0, "entry_time": "2026-10-07 23:49:00", "cost_usd": 5, "qty": 2.5e-07, "current_price": 19563674.0, "chain": "ethereum", "address": "0x1b54E762aa34CF6E28E9C082F2848e28E45DA6b8", "pairAddress": "0xfaa42866f7667e3a1a10d783f3b629171febd45f056336b8df766d74afc0f0f7", "match_note": "DexScreener search CLAUS: only pair near $19.8M MC (Ethereum, Uniswap v4 CLAUS/ETH, MC ~$19.7-20.1M, liq ~$726K, highest-liquidity pool of this token). Next-closest CLAUS was ~$2.3M on Base.", "price_basis": "market_cap", "price_updated": "2026-10-08 00:02:05"}], "trades": [], "last_run": "2026-10-08 00:03:13", "first_run": "2026-10-07 23:15:00"}, "rendered": "2026-10-08 00:08:30"};
+let C, L, FEE, TP, SL, START, POS, TR, DATASRC = 'baked-in', DATAAT = null;
+function setData(cfg, led){ C = cfg; L = led; FEE = C.paper_fee_slippage_pct_each_side/100; TP = C.exits.take_profit_pct; SL = C.exits.stop_loss_pct;
+  START = +(C.paper_starting_balance_usd ?? 100); POS = L.positions || []; TR = L.trades || []; }
+setData(DATA.cfg, DATA.led);
+const LIVE = {}; // id -> {pair, ts, ok}
+let SEL = null, feedState = 'idle', lastOk = null;
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '—').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const cls = x => x > 0 ? 'g' : x < 0 ? 'r' : '';
+const usd = (x, sign=true) => x == null || isNaN(x) ? '—' : `<span class="${sign?cls(x):''}">${sign&&x>0?'+':x<0?'-':''}$${Math.abs(x).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})}</span>`;
+const big = x => x == null || isNaN(x) ? '—' : x >= 1e9 ? '$'+(x/1e9).toFixed(2)+'B' : x >= 1e6 ? '$'+(x/1e6).toFixed(2)+'M' : x >= 1e3 ? '$'+(x/1e3).toFixed(1)+'K' : '$'+(+x).toFixed(2);
+const pct = x => x == null || isNaN(x) ? '—' : `<span class="${cls(x)}">${x>0?'+':''}${(+x).toFixed(2)}%</span>`;
+const px = x => x == null ? '—' : '$' + (+x < 0.01 ? (+x).toPrecision(4) : (+x).toLocaleString(undefined,{maximumFractionDigits:6}));
+const isMC = p => (p.price_basis || 'price') === 'market_cap';
+const fmtBasis = (p, v) => isMC(p) ? big(v) : px(v);
+const tsBkk = ms => new Date(ms).toLocaleString('sv-SE',{timeZone:C.timezone,hour12:false});
+// local cache of last-known live values (survives reloads)
+try { Object.assign(LIVE, JSON.parse(localStorage.getItem('fomo_live')||'{}')); } catch(e){}
+function cur(p){ // current value on the entry basis: live if available, else ledger-stored
+  const lv = LIVE[p.id]; if (lv && lv.pair){ const v = isMC(p) ? (lv.pair.marketCap ?? lv.pair.fdv) : +lv.pair.priceUsd; if (v) return {v, src: lv.ok ? 'live' : 'cached', ts: lv.ts}; }
+  if (p.current_price != null) return {v: p.current_price, src:'ledger', ts: null};
+  return {v:null, src:'none'};
+}
+function pnl(p, v){ if (v == null) return null; return p.cost_usd*(1-FEE)*(v/p.entry_price)*(1-FEE) - p.cost_usd; }
+function move(p, v){ return v == null ? null : 100*(v/p.entry_price - 1); }
+function tgt(p){ return {tp: p.entry_price*(1+TP/100), sl: p.entry_price*(1+SL/100)}; }
+function progress(p, v){ const t = tgt(p); return v == null ? null : Math.max(0, Math.min(1, (v - t.sl)/(t.tp - t.sl))); }
+function cards(){
+  const real = TR.reduce((a,t)=>a+t.pnl_usd,0); const un = POS.reduce((a,p)=>a+(pnl(p,cur(p).v)||0),0);
+  const today = new Date().toLocaleDateString('en-CA',{timeZone:C.timezone});
+  const rt = TR.filter(t=>String(t.exit_time||'').startsWith(today)).reduce((a,t)=>a+t.pnl_usd,0);
+  const w = TR.filter(t=>t.pnl_usd>0).length, l = TR.length - w;
+  $('#cards').innerHTML = `
+  <div class="panel"><div class="lbl">Paper balance</div><div class="v">${usd(START+real+un,false)}</div><div class="sub">start ${usd(START,false)} + realized + unrealized</div></div>
+  <div class="panel" style="border-top:2px solid #39ff88"><div class="lbl">Total P/L</div><div class="v">${usd(real+un)}</div><div class="sub">realized ${usd(real)} · today ${usd(rt)}</div></div>
+  <div class="panel"><div class="lbl">Unrealized</div><div class="v">${usd(un)}</div><div class="sub">${POS.length} open · live where available</div></div>
+  <div class="panel"><div class="lbl">Win rate</div><div class="v">${TR.length? (100*w/TR.length).toFixed(1)+'%' : '—'}</div><div class="sub">${w}W / ${l}L${TR.length?'':' · no closed trades yet'}</div></div>
+  <div class="panel"><div class="lbl">Exits</div><div class="v"><span class="g">+${TP}%</span> <span class="dim">/</span> <span class="r">${SL}%</span></div><div class="sub">first match wins · $${C.size.usd_per_buy} flat</div></div>`;
+}
+function list(){
+  if (!POS.length){ $('#list').innerHTML = '<div class="panel empty">NO OPEN POSITIONS</div>'; return; }
+  $('#list').innerHTML = POS.map(p => { const c = cur(p), m = move(p,c.v), pr = progress(p,c.v);
+    return `<div class="pc ${p.id===SEL?'sel':''}" data-id="${esc(p.id)}"><div class="row"><span class="tk">${esc(p.token)}</span><span class="mv ${cls(m)}">${m==null?'—':(m>0?'+':'')+m.toFixed(2)+'%'}</span></div>
+    <div class="row s"><span>${esc(p.trader)} · ${esc(p.chain||'chain ?')}</span><span>${usd(pnl(p,c.v))}</span></div>
+    <div class="row s"><span>entry ${fmtBasis(p,p.entry_price)}${isMC(p)?' MC':''}</span><span>now ${fmtBasis(p,c.v)} <span class="dim">${c.src}</span></span></div>
+    <div class="mini"><i style="width:${pr==null?0:pr*100}%"></i></div></div>`; }).join('');
+  document.querySelectorAll('.pc').forEach(e => e.onclick = () => { SEL = e.dataset.id; location.hash = SEL; list(); detail(true); });
+}
+function detail(reframe){
+  const p = POS.find(x=>x.id===SEL);
+  if (!p){ $('#detail').dataset.key = ''; $('#detail').innerHTML = `<div class="panel empty">${POS.length?'SELECT A POSITION':'NO OPEN POSITIONS — NOTHING TO CHART YET'}</div>`; return; }
+  const c = cur(p), lv = LIVE[p.id], pr = lv && lv.pair, t = tgt(p), m = move(p,c.v), g = progress(p,c.v);
+  const fomo = p.chain && p.address ? `https://fomo.family/tokens/${encodeURIComponent(p.chain)}/${encodeURIComponent(p.address)}` : null;
+  const ds = p.chain && p.pairAddress ? `https://dexscreener.com/${encodeURIComponent(p.chain)}/${encodeURIComponent(p.pairAddress)}` : null;
+  const ch = x => pr && pr.priceChange ? pct(pr.priceChange[x]) : '—';
+  const fkey = p.id+'|'+(p.chain||'')+'|'+(p.pairAddress||'');
+  if (reframe || !$('#chartbox') || $('#detail').dataset.key !== fkey){ $('#detail').dataset.key = fkey;
+    $('#detail').innerHTML = `<div class="dh"><div class="t">${esc(p.token)}<small>${esc(pr? pr.baseToken.name : '')} · ${esc(p.chain||'unknown chain')}</small></div>
+      <div>${fomo?`<a href="${fomo}" target="_blank">FOMO ↗</a>`:'<span class="dim">FOMO link n/a</span>'} &nbsp; ${ds?`<a href="${ds}" target="_blank">DEXSCREENER ↗</a>`:'<span class="dim">DexScreener n/a</span>'}</div></div>
+      <div class="warn" id="warn"></div>
+      <div class="chartbox" id="chartbox">${ds?`<div class="ph">LOADING LIVE CHART…</div><iframe src="${ds}?embed=1&theme=dark&trades=0&info=0" loading="lazy"></iframe>`:'<div class="ph">NO PAIR ADDRESS STORED FOR THIS POSITION — CHART UNAVAILABLE<br><small>set it with: ledger.py token ID --chain C --address A --pair P</small></div>'}</div>
+      <div id="dstats"></div>`;
+  }
+  const warn = $('#warn');
+  if (!ds){ warn.className='warn on'; warn.textContent='NO CHAIN/PAIR STORED — LIVE FEED UNAVAILABLE FOR THIS POSITION. SHOWING LEDGER VALUES.'; }
+  else if (lv && !lv.ok){ warn.className='warn on'; warn.textContent = `LIVE FEED UNAVAILABLE — SHOWING LAST KNOWN VALUES${lv.ts?' FROM '+tsBkk(lv.ts)+' (BKK)':''}${lv.err?' · '+lv.err:''}` + (location.protocol==='file:'?' · OPENED AS A LOCAL FILE: DEXSCREENER API REJECTS file:// ORIGINS. SERVE OVER HTTP: python3 -m http.server 8765 IN THIS FOLDER, THEN OPEN http://127.0.0.1:8765/app.html':''); }
+  else if (!lv){ warn.className='warn on'; warn.textContent='WAITING FOR LIVE FEED… SHOWING LEDGER VALUES'; }
+  else warn.className='warn';
+  const mk = v => g==null ? 0 : v;
+  $('#dstats').innerHTML = `
+  <div class="stats">
+    <div class="st"><span class="lbl">Price</span><b>${pr?px(pr.priceUsd):'—'}</b></div>
+    <div class="st"><span class="lbl">Market cap</span><b>${pr?big(pr.marketCap ?? pr.fdv):'—'}</b></div>
+    <div class="st"><span class="lbl">5m / 1h</span><b>${ch('m5')} <span class="dim">/</span> ${ch('h1')}</b></div>
+    <div class="st"><span class="lbl">24h</span><b>${ch('h24')}</b></div>
+    <div class="st"><span class="lbl">Liquidity</span><b>${pr&&pr.liquidity?big(pr.liquidity.usd):'—'}</b></div>
+    <div class="st"><span class="lbl">Vol 24h</span><b>${pr&&pr.volume?big(pr.volume.h24):'—'}</b></div>
+  </div>
+  <div class="panel"><div class="lbl" style="display:flex;justify-content:space-between"><span>Position · SL ↔ TP</span><span>${c.src==='live'?'<span class="g">● LIVE</span>':esc(c.src.toUpperCase())}${c.ts?' · '+tsBkk(c.ts):''}</span></div>
+    <div class="prog"><div class="z" style="left:0;width:${100*(-SL)/(TP-SL)}%;background:#ff4d4d22"></div><div class="z" style="left:${100*(-SL)/(TP-SL)}%;right:0;background:#39ff8822"></div>
+      <div class="mk" style="left:${100*(-SL)/(TP-SL)}%;background:#888;width:1px"></div>
+      ${g==null?'':`<div class="mk" style="left:calc(${g*100}% - 1px)"></div><span class="lab u" style="left:${g*100}%">NOW ${fmtBasis(p,c.v)} (${m>0?'+':''}${m.toFixed(2)}%)</span>`}
+      <span class="lab d r" style="left:0;transform:none">SL ${fmtBasis(p,t.sl)} (${SL}%)</span><span class="lab d dim" style="left:${100*(-SL)/(TP-SL)}%">ENTRY ${fmtBasis(p,p.entry_price)}</span><span class="lab d g" style="right:0;left:auto;transform:none">TP ${fmtBasis(p,t.tp)} (+${TP}%)</span></div>
+    <div class="kv">
+      <div><span>Entry ${isMC(p)?'MC':'price'}</span><span>${fmtBasis(p,p.entry_price)}</span></div>
+      <div><span>Current ${isMC(p)?'MC':'price'}</span><span>${fmtBasis(p,c.v)}</span></div>
+      <div><span>From entry</span><span>${pct(m)}</span></div>
+      <div><span>Unrealized P/L (net)</span><span>${usd(pnl(p,c.v))}</span></div>
+      <div><span>Cost</span><span>${usd(p.cost_usd,false)} · ${C.paper_fee_slippage_pct_each_side}%/side</span></div>
+      <div><span>Value if sold now</span><span>${c.v==null?'—':usd(p.cost_usd+pnl(p,c.v),false)}</span></div>
+      <div><span>TP target</span><span class="g">${fmtBasis(p,t.tp)}</span></div>
+      <div><span>SL target</span><span class="r">${fmtBasis(p,t.sl)}</span></div>
+      <div><span>Trader copied</span><span>${esc(p.trader)}</span></div>
+      <div><span>Entry time (BKK)</span><span>${esc(p.entry_time)}</span></div>
+      <div><span>Chain</span><span>${esc(p.chain)}</span></div>
+      <div><span>Contract</span><span title="${esc(p.address)}">${esc(p.address)}</span></div>
+      <div><span>Pair</span><span title="${esc(p.pairAddress)}">${esc(p.pairAddress)}</span></div>
+      <div><span>Pair DEX</span><span>${pr?esc(pr.dexId+' '+(pr.labels||[]).join(' ')+' · '+pr.baseToken.symbol+'/'+pr.quoteToken.symbol):'—'}</span></div>
+      <div><span>Position id</span><span>${esc(p.id)}</span></div>
+    </div>${p.match_note?`<div class="sub" style="margin-top:8px;text-transform:none">match: ${esc(p.match_note)}</div>`:''}</div>`;
+}
+function closed(){
+  $('#closed').innerHTML = TR.length ? `<table><tr><th>Token</th><th>Trader</th><th>Chain</th><th>Entry time</th><th>Entry</th><th>Exit time</th><th>Exit</th><th>Move</th><th>Reason</th><th class="rt">Realized P/L</th></tr>${
+    TR.slice().reverse().map(t=>`<tr><td><b>${esc(t.token)}</b></td><td>${esc(t.trader)}</td><td>${esc(t.chain)}</td><td class="dim">${esc(t.entry_time)}</td><td>${fmtBasis(t,t.entry_price)}</td><td class="dim">${esc(t.exit_time)}</td><td>${fmtBasis(t,t.exit_price)}</td><td>${pct(move(t,t.exit_price))}</td><td><span class="tag t${esc(t.reason)}">${esc(t.reason)}</span></td><td class="rt">${usd(t.pnl_usd)}</td></tr>`).join('')}</table>`
+    : '<div class="empty">NO CLOSED TRADES YET</div>';
+}
+function activity(){
+  const ev = [];
+  TR.forEach(t => { ev.push([t.entry_time,t.trader,'BUY',null,t.token]); ev.push([t.exit_time,t.trader,t.reason,t.pnl_usd,t.token]); });
+  POS.forEach(p => ev.push([p.entry_time,p.trader,'BUY',null,p.token]));
+  ev.sort((a,b)=>String(b[0]).localeCompare(String(a[0])));
+  $('#n-act').textContent = ev.length;
+  $('#act').innerHTML = ev.length ? `<table><tr><th>Time (BKK)</th><th>Trader</th><th>Action</th><th>Token</th><th class="rt">P/L</th></tr>${ev.map(e=>`<tr><td class="dim">${esc(e[0])}</td><td>${esc(e[1])}</td><td><span class="tag t${esc(e[2])}">${esc(e[2])}</span></td><td>${esc(e[4])}</td><td class="rt">${e[3]==null?'<span class="dim">$'+C.size.usd_per_buy+' in</span>':usd(e[3])}</td></tr>`).join('')}</table>` : '<div class="empty">NO ACTIVITY YET</div>';
+}
+function cfgView(){
+  const rows = [['Mode',C.mode],['Allowlist ('+C.allowlist.length+')',C.allowlist.join(', ')],['Size','$'+C.size.usd_per_buy+' flat per buy'],['Take-profit','+'+TP+'% from entry'],['Stop-loss',SL+'% from entry'],['Exit rule',C.exits.rule],['Risk caps',C.risk_caps||'none'],['Paper fee/slippage',C.paper_fee_slippage_pct_each_side+'% each side'],['Paper starting balance','$'+START],['Timezone',C.timezone]];
+  $('#cfgv').innerHTML = `<table>${rows.map(r=>`<tr><td class="dim">${esc(r[0])}</td><td>${esc(r[1])}</td></tr>`).join('')}</table>`;
+}
+function header(){
+  const dot = $('#dot'), t = $('#livetxt'), any = POS.some(p=>p.chain&&p.pairAddress);
+  if (!POS.length){ dot.className='dot'; t.textContent='NO OPEN POSITIONS'; }
+  else if (!any){ dot.className='dot off'; t.textContent='NO PAIRS TO TRACK'; }
+  else if (feedState==='ok'){ dot.className='dot on'; t.textContent='LIVE · '+tsBkk(lastOk).slice(11); }
+  else if (feedState==='err'){ dot.className='dot off'; t.textContent='LIVE FEED UNAVAILABLE'; }
+  else { dot.className='dot'; t.textContent='CONNECTING'; }
+}
+async function poll(){
+  const tracked = POS.filter(p=>p.chain&&p.pairAddress); if (!tracked.length){ header(); return true; }
+  let okAny = false, errAny = false;
+  await Promise.all(tracked.map(async p => {
+    try {
+      const r = await fetch(`https://api.dexscreener.com/latest/dex/pairs/${encodeURIComponent(p.chain)}/${encodeURIComponent(p.pairAddress)}`, {cache:'no-store'});
+      if (!r.ok) throw new Error('HTTP '+r.status);
+      const j = await r.json(); const pair = (j.pairs||[]).find(x=>x.pairAddress.toLowerCase()===p.pairAddress.toLowerCase()) || (j.pairs||[])[0] || j.pair;
+      if (!pair) throw new Error('pair not found');
+      LIVE[p.id] = {pair, ts: Date.now(), ok: true}; okAny = true;
+    } catch(e){ errAny = true; let m = String(e.message||e); if (m==='Failed to fetch') m += ' (network/CORS or API rate limit — HTTP 429 has no CORS header)'; LIVE[p.id] = Object.assign(LIVE[p.id]||{}, {ok:false, err:m}); }
+  }));
+  if (okAny && !errAny){ feedState='ok'; lastOk=Date.now(); } else if (errAny) feedState='err';
+  try { localStorage.setItem('fomo_live', JSON.stringify(LIVE)); } catch(e){}
+  header(); cards(); list(); detail(false);
+  return !errAny;
+}
+document.querySelectorAll('.tab').forEach(b => b.onclick = () => { document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x===b)); document.querySelectorAll('.view').forEach(v=>v.classList.toggle('on', v.id==='v-'+b.dataset.v)); });
+function statics(){
+  $('#lastrun').textContent = L.last_run || 'NEVER'; $('#books').textContent = C.allowlist.length; $('#tpc').textContent = '+'+TP+'%'; $('#slc').textContent = SL+'%'; $('#feec').textContent = C.paper_fee_slippage_pct_each_side;
+  $('#n-pos').textContent = POS.length; $('#n-closed').textContent = TR.length;
+  $('#datasrc').textContent = DATASRC + (DATAAT ? ' · ' + tsBkk(DATAAT) : '');
+}
+function pickSel(){
+  const h = location.hash.slice(1);
+  if (SEL && POS.some(p=>p.id===SEL)) return;
+  SEL = (h && POS.some(p=>p.id===h)) ? h : (POS[0]||{}).id;
+}
+function renderAll(reframe){ pickSel(); statics(); header(); cards(); list(); detail(reframe); closed(); activity(); cfgView(); }
+$('#foot').innerHTML = `<span>page built <b>${esc(DATA.rendered)}</b> BKK</span><span>ledger data <b id="datasrc"></b></span><span>ledger refresh <b id="ledint">30s</b></span><span>live poll <b id="pollint">10s</b> (dexscreener)</span><span>tz <b>${esc(C.timezone)}</b></span>`;
+renderAll(true);
+const CAN_FETCH_LEDGER = location.protocol === 'http:' || location.protocol === 'https:';
+let lastLedgerJson = JSON.stringify(DATA.led) + JSON.stringify(DATA.cfg);
+async function refreshLedger(){
+  try {
+    const t = Date.now();
+    const [lr, cr] = await Promise.all([fetch('./ledger.json?t='+t, {cache:'no-store'}), fetch('./config.json?t='+t, {cache:'no-store'})]);
+    if (!lr.ok || !cr.ok) throw new Error('HTTP '+lr.status+'/'+cr.status);
+    const [led, cfg] = await Promise.all([lr.json(), cr.json()]);
+    if (!led || !Array.isArray(led.positions) || !cfg || !cfg.exits) throw new Error('bad ledger/config shape');
+    DATASRC = 'live ./ledger.json'; DATAAT = Date.now();
+    const k = JSON.stringify(led) + JSON.stringify(cfg);
+    if (k !== lastLedgerJson){ lastLedgerJson = k; const hadTracked = POS.map(p=>p.id+p.pairAddress).join(); setData(cfg, led); renderAll(false); if (hadTracked !== POS.map(p=>p.id+p.pairAddress).join()) poll(); }
+    else statics();
+  } catch(e){ DATASRC = 'refresh failed (' + String(e.message||e) + ') — showing ' + (DATAAT ? 'last fetched' : 'baked-in'); statics(); }
+}
+if (CAN_FETCH_LEDGER){ refreshLedger(); setInterval(refreshLedger, 30000); }
+else { $('#ledint').textContent = 'reload 5 min (local file)'; setTimeout(() => location.reload(), 300000); }
+let delay = 10000; (async function loop(){ const ok = await poll(); delay = ok ? 10000 : Math.min(60000, delay*2); $('#pollint').textContent = (delay/1000)+'s'+(ok?'':' (backoff)'); setTimeout(loop, delay); })();
+</script></body></html>

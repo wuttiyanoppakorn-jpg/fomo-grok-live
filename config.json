@@ -1,0 +1,27 @@
+{
+ "mode": "paper",
+ "allowlist": [
+  "@0xstanczyk",
+  "@tjr",
+  "@BTCwolf",
+  "@unipcs",
+  "@Nikkuu",
+  "@frankdegods",
+  "@smokey0x",
+  "@frogmanhaha",
+  "@0xAvast"
+ ],
+ "size": {
+  "type": "flat_usd",
+  "usd_per_buy": 5
+ },
+ "exits": {
+  "take_profit_pct": 30,
+  "stop_loss_pct": -15,
+  "rule": "first match wins, measured from entry price"
+ },
+ "risk_caps": null,
+ "paper_fee_slippage_pct_each_side": 1,
+ "timezone": "Asia/Bangkok",
+ "paper_starting_balance_usd": 100
+}
