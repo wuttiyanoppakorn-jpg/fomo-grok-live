@@ -8,13 +8,13 @@
       "entry_time": "2026-10-07 23:49:00",
       "cost_usd": 5,
       "qty": 2.5e-07,
-      "current_price": 18541394.0,
+      "current_price": 17856701.0,
       "chain": "ethereum",
       "address": "0x1b54E762aa34CF6E28E9C082F2848e28E45DA6b8",
       "pairAddress": "0xfaa42866f7667e3a1a10d783f3b629171febd45f056336b8df766d74afc0f0f7",
       "match_note": "DexScreener search CLAUS: only pair near $19.8M MC (Ethereum, Uniswap v4 CLAUS/ETH, MC ~$19.7-20.1M, liq ~$726K, highest-liquidity pool of this token). Next-closest CLAUS was ~$2.3M on Base.",
       "price_basis": "market_cap",
-      "price_updated": "2026-10-08 07:11:30"
+      "price_updated": "2026-10-08 07:28:18"
     },
     {
       "id": "d1c733b7",
@@ -24,13 +24,13 @@
       "entry_time": "2026-10-08 00:05:30",
       "cost_usd": 5,
       "qty": 3.3221476510067114e-07,
-      "current_price": 13421183.0,
+      "current_price": 13434868.0,
       "price_basis": "market_cap",
       "chain": "robinhood",
       "address": "0x385F4f8ae47651ce5F58F5265395a669f8281e18",
       "pairAddress": "0x46525dc119850396470f132c4a989d7192cb692139db891b5a4cdcd684c11b17",
       "match_note": "FOMO showed MEME (A Meme Coin, AMC tokenized-stock meme) at $14.9M MC. DexScreener: Robinhood chain, Uniswap v4 MEME/USDG, MC ~$14.89M, liq ~$619K \u2014 matches.",
-      "price_updated": "2026-10-08 07:11:30"
+      "price_updated": "2026-10-08 07:28:18"
     }
   ],
   "trades": [],
