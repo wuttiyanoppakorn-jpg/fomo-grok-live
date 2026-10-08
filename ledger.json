@@ -24,11 +24,11 @@
       "entry_time": "2026-10-08 09:50:00",
       "cost_usd": 5,
       "qty": 7.615384615384616e-07,
-      "current_price": 8040000.0,
+      "current_price": 8515843.0,
       "price_basis": "market_cap",
       "chain": "solana",
       "address": "5dvXTZ5qwgafnHtwu3Ls3QrWx1U4LQsFeCuJgkk4QEC6",
-      "price_updated": "2026-10-08 16:34:23"
+      "price_updated": "2026-10-08 16:45:49"
     },
     {
       "id": "a6e3619b",
@@ -38,11 +38,11 @@
       "entry_time": "2026-10-08 02:50:00",
       "cost_usd": 5,
       "qty": 1.8258945038731095e-05,
-      "current_price": 327316.0,
+      "current_price": 328715.0,
       "price_basis": "market_cap",
       "chain": "solana",
       "address": "8dBnKHwNYH3hz2fFTJczVwzBTpJFAMtc53k3uA4zpump",
-      "price_updated": "2026-10-08 15:38:19"
+      "price_updated": "2026-10-08 16:45:49"
     },
     {
       "id": "7c9b7d8b",
@@ -52,11 +52,11 @@
       "entry_time": "2026-10-08 04:50:00",
       "cost_usd": 5,
       "qty": 1.1024498886414254e-06,
-      "current_price": 4418595.0,
+      "current_price": 4419115.0,
       "price_basis": "market_cap",
       "chain": "solana",
       "address": "WoSEAj2AePRdEV4DhDwGeDCDZuEjigZnc5hDBNGYYrT",
-      "price_updated": "2026-10-08 15:26:42"
+      "price_updated": "2026-10-08 16:45:49"
     },
     {
       "id": "3f1cc4d4",
@@ -81,11 +81,11 @@
       "entry_time": "2026-10-08 02:50:00",
       "cost_usd": 5,
       "qty": 3.3221476510067116e-06,
-      "current_price": 1982759.0,
+      "current_price": 2065953.0,
       "price_basis": "market_cap",
       "chain": "base",
       "address": "0x9e00fc92493451eba1c63dd3880d68b622037ba3",
-      "price_updated": "2026-10-08 15:26:42"
+      "price_updated": "2026-10-08 16:45:49"
     },
     {
       "id": "743a6720",
@@ -95,12 +95,12 @@
       "entry_time": "2026-10-08 12:33:00",
       "cost_usd": 5,
       "qty": 1.7824990997479296e-05,
-      "current_price": 327316.0,
+      "current_price": 328715.0,
       "price_basis": "market_cap",
       "chain": "solana",
       "address": "8dBnKHwNYH3hz2fFTJczVwzBTpJFAMtc53k3uA4zpump",
       "pairAddress": "A8JMWc6ijm7dUUBFTgRcPG9hqGsN9gipKj39q1hbhQZk",
-      "price_updated": "2026-10-08 15:38:19"
+      "price_updated": "2026-10-08 16:45:49"
     },
     {
       "id": "635eefcf",
@@ -110,12 +110,12 @@
       "entry_time": "2026-10-08 12:34:00",
       "cost_usd": 5,
       "qty": 1.7780172413793104e-05,
-      "current_price": 327316.0,
+      "current_price": 328715.0,
       "price_basis": "market_cap",
       "chain": "solana",
       "address": "8dBnKHwNYH3hz2fFTJczVwzBTpJFAMtc53k3uA4zpump",
       "pairAddress": "A8JMWc6ijm7dUUBFTgRcPG9hqGsN9gipKj39q1hbhQZk",
-      "price_updated": "2026-10-08 15:38:19"
+      "price_updated": "2026-10-08 16:45:49"
     },
     {
       "id": "6c9d524d",
@@ -125,11 +125,12 @@
       "entry_time": "2026-10-08 15:37:00",
       "cost_usd": 5,
       "qty": 1.4343668501883513e-05,
-      "current_price": 345100.0,
+      "current_price": 452166.0,
       "price_basis": "market_cap",
       "chain": "solana",
       "address": "HaQdrXRUoxxk1qLFZJNrSyzWNjn16o1r1np5h6jipump",
-      "pairAddress": "65GHmCbyRME3XwKjTqDB7pMJw2gvj2LZryfWKczoAqFR"
+      "pairAddress": "65GHmCbyRME3XwKjTqDB7pMJw2gvj2LZryfWKczoAqFR",
+      "price_updated": "2026-10-08 16:45:49"
     },
     {
       "id": "ca66b37f",
