@@ -52,11 +52,11 @@
       "entry_time": "2026-10-08 04:50:00",
       "cost_usd": 5,
       "qty": 1.1024498886414254e-06,
-      "current_price": 4410046.0,
+      "current_price": 4418595.0,
       "price_basis": "market_cap",
       "chain": "solana",
       "address": "WoSEAj2AePRdEV4DhDwGeDCDZuEjigZnc5hDBNGYYrT",
-      "price_updated": "2026-10-08 14:58:33"
+      "price_updated": "2026-10-08 15:26:42"
     },
     {
       "id": "3f1cc4d4",
@@ -81,11 +81,11 @@
       "entry_time": "2026-10-08 02:50:00",
       "cost_usd": 5,
       "qty": 3.3221476510067116e-06,
-      "current_price": 1625462.0,
+      "current_price": 1982759.0,
       "price_basis": "market_cap",
       "chain": "base",
       "address": "0x9e00fc92493451eba1c63dd3880d68b622037ba3",
-      "price_updated": "2026-10-08 14:17:43"
+      "price_updated": "2026-10-08 15:26:42"
     },
     {
       "id": "743a6720",
@@ -125,12 +125,12 @@
       "entry_time": "2026-10-08 14:52:00",
       "cost_usd": 5,
       "qty": 1.0772578890097933e-05,
-      "current_price": 445316.0,
+      "current_price": 487076.0,
       "price_basis": "market_cap",
       "chain": "solana",
       "address": "HaQdrXRUoxxk1qLFZJNrSyzWNjn16o1r1np5h6jipump",
       "pairAddress": "65GHmCbyRME3XwKjTqDB7pMJw2gvj2LZryfWKczoAqFR",
-      "price_updated": "2026-10-08 15:09:59"
+      "price_updated": "2026-10-08 15:26:42"
     },
     {
       "id": "20ebde61",
@@ -140,12 +140,12 @@
       "entry_time": "2026-10-08 15:03:00",
       "cost_usd": 5,
       "qty": 1.0774923813670005e-05,
-      "current_price": 445316.0,
+      "current_price": 487076.0,
       "price_basis": "market_cap",
       "chain": "solana",
       "address": "HaQdrXRUoxxk1qLFZJNrSyzWNjn16o1r1np5h6jipump",
       "pairAddress": "65GHmCbyRME3XwKjTqDB7pMJw2gvj2LZryfWKczoAqFR",
-      "price_updated": "2026-10-08 15:09:59"
+      "price_updated": "2026-10-08 15:26:42"
     },
     {
       "id": "2114b615",
@@ -155,12 +155,12 @@
       "entry_time": "2026-10-08 15:03:00",
       "cost_usd": 5,
       "qty": 1.133501259445844e-05,
-      "current_price": 445316.0,
+      "current_price": 487076.0,
       "price_basis": "market_cap",
       "chain": "solana",
       "address": "HaQdrXRUoxxk1qLFZJNrSyzWNjn16o1r1np5h6jipump",
       "pairAddress": "65GHmCbyRME3XwKjTqDB7pMJw2gvj2LZryfWKczoAqFR",
-      "price_updated": "2026-10-08 15:09:59"
+      "price_updated": "2026-10-08 15:26:42"
     }
   ],
   "trades": [
@@ -272,6 +272,6 @@
       "pnl_usd": -1.158844
     }
   ],
-  "last_run": "2026-10-08 15:07:00",
+  "last_run": "2026-10-08 15:23:00",
   "first_run": "2026-10-07 23:15:00"
 }
