@@ -8,13 +8,13 @@
       "entry_time": "2026-10-08 00:05:30",
       "cost_usd": 5,
       "qty": 3.3221476510067114e-07,
-      "current_price": 13312518.0,
+      "current_price": 13498316.0,
       "price_basis": "market_cap",
       "chain": "robinhood",
       "address": "0x385F4f8ae47651ce5F58F5265395a669f8281e18",
       "pairAddress": "0x46525dc119850396470f132c4a989d7192cb692139db891b5a4cdcd684c11b17",
       "match_note": "FOMO showed MEME (A Meme Coin, AMC tokenized-stock meme) at $14.9M MC. DexScreener: Robinhood chain, Uniswap v4 MEME/USDG, MC ~$14.89M, liq ~$619K \u2014 matches.",
-      "price_updated": "2026-10-08 17:46:09"
+      "price_updated": "2026-10-08 17:54:41"
     },
     {
       "id": "86f349ca",
@@ -24,11 +24,11 @@
       "entry_time": "2026-10-08 09:50:00",
       "cost_usd": 5,
       "qty": 7.615384615384616e-07,
-      "current_price": 7721940.0,
+      "current_price": 7732999.0,
       "price_basis": "market_cap",
       "chain": "solana",
       "address": "5dvXTZ5qwgafnHtwu3Ls3QrWx1U4LQsFeCuJgkk4QEC6",
-      "price_updated": "2026-10-08 17:46:09"
+      "price_updated": "2026-10-08 17:54:41"
     },
     {
       "id": "a6e3619b",
@@ -38,11 +38,11 @@
       "entry_time": "2026-10-08 02:50:00",
       "cost_usd": 5,
       "qty": 1.8258945038731095e-05,
-      "current_price": 285788.0,
+      "current_price": 285546.0,
       "price_basis": "market_cap",
       "chain": "solana",
       "address": "8dBnKHwNYH3hz2fFTJczVwzBTpJFAMtc53k3uA4zpump",
-      "price_updated": "2026-10-08 17:46:10"
+      "price_updated": "2026-10-08 17:54:41"
     },
     {
       "id": "7c9b7d8b",
@@ -52,11 +52,11 @@
       "entry_time": "2026-10-08 04:50:00",
       "cost_usd": 5,
       "qty": 1.1024498886414254e-06,
-      "current_price": 4429942.0,
+      "current_price": 4433098.0,
       "price_basis": "market_cap",
       "chain": "solana",
       "address": "WoSEAj2AePRdEV4DhDwGeDCDZuEjigZnc5hDBNGYYrT",
-      "price_updated": "2026-10-08 17:46:21"
+      "price_updated": "2026-10-08 17:54:41"
     },
     {
       "id": "3f1cc4d4",
@@ -66,12 +66,12 @@
       "entry_time": "2026-10-08 05:50:00",
       "cost_usd": 5,
       "qty": 3.4615384615384616e-07,
-      "current_price": 13312518.0,
+      "current_price": 13498316.0,
       "price_basis": "market_cap",
       "chain": "robinhood",
       "address": "0x385F4f8ae47651ce5F58F5265395a669f8281e18",
       "pairAddress": "0x46525dc119850396470f132c4a989d7192cb692139db891b5a4cdcd684c11b17",
-      "price_updated": "2026-10-08 17:46:09"
+      "price_updated": "2026-10-08 17:54:41"
     },
     {
       "id": "48fa4c18",
@@ -85,7 +85,7 @@
       "price_basis": "market_cap",
       "chain": "base",
       "address": "0x9e00fc92493451eba1c63dd3880d68b622037ba3",
-      "price_updated": "2026-10-08 17:46:10"
+      "price_updated": "2026-10-08 17:54:41"
     },
     {
       "id": "743a6720",
@@ -95,12 +95,12 @@
       "entry_time": "2026-10-08 12:33:00",
       "cost_usd": 5,
       "qty": 1.7824990997479296e-05,
-      "current_price": 285788.0,
+      "current_price": 285546.0,
       "price_basis": "market_cap",
       "chain": "solana",
       "address": "8dBnKHwNYH3hz2fFTJczVwzBTpJFAMtc53k3uA4zpump",
       "pairAddress": "A8JMWc6ijm7dUUBFTgRcPG9hqGsN9gipKj39q1hbhQZk",
-      "price_updated": "2026-10-08 17:46:10"
+      "price_updated": "2026-10-08 17:54:41"
     },
     {
       "id": "635eefcf",
@@ -110,12 +110,12 @@
       "entry_time": "2026-10-08 12:34:00",
       "cost_usd": 5,
       "qty": 1.7780172413793104e-05,
-      "current_price": 285788.0,
+      "current_price": 285546.0,
       "price_basis": "market_cap",
       "chain": "solana",
       "address": "8dBnKHwNYH3hz2fFTJczVwzBTpJFAMtc53k3uA4zpump",
       "pairAddress": "A8JMWc6ijm7dUUBFTgRcPG9hqGsN9gipKj39q1hbhQZk",
-      "price_updated": "2026-10-08 17:46:10"
+      "price_updated": "2026-10-08 17:54:41"
     },
     {
       "id": "6c9d524d",
@@ -125,12 +125,12 @@
       "entry_time": "2026-10-08 15:37:00",
       "cost_usd": 5,
       "qty": 1.4343668501883513e-05,
-      "current_price": 437814.0,
+      "current_price": 438723.0,
       "price_basis": "market_cap",
       "chain": "solana",
       "address": "HaQdrXRUoxxk1qLFZJNrSyzWNjn16o1r1np5h6jipump",
       "pairAddress": "65GHmCbyRME3XwKjTqDB7pMJw2gvj2LZryfWKczoAqFR",
-      "price_updated": "2026-10-08 17:46:09"
+      "price_updated": "2026-10-08 17:54:41"
     },
     {
       "id": "ca66b37f",
@@ -140,12 +140,12 @@
       "entry_time": "2026-10-08 16:15:00",
       "cost_usd": 5,
       "qty": 3.6940298507462687e-07,
-      "current_price": 13312518.0,
+      "current_price": 13498316.0,
       "price_basis": "market_cap",
       "chain": "robinhood",
       "address": "0x385F4f8ae47651ce5F58F5265395a669f8281e18",
       "pairAddress": "0x46525dc119850396470f132c4a989d7192cb692139db891b5a4cdcd684c11b17",
-      "price_updated": "2026-10-08 17:46:09"
+      "price_updated": "2026-10-08 17:54:41"
     },
     {
       "id": "8d13f2f4",
@@ -155,13 +155,13 @@
       "entry_time": "2026-10-08 16:54:00",
       "cost_usd": 5,
       "qty": 2.1336206896551725e-07,
-      "current_price": 23186444.0,
+      "current_price": 23591982.0,
       "price_basis": "market_cap",
       "chain": "solana",
       "address": "DEW9dSN6QpWyNthphCpMmAbZP1Q4cEKR9xQXAri98WDP",
       "pairAddress": "AG1EhPjsBrkxQWkViuLXF6pQnHwfr9f9sdNneeoykcEJ",
       "match_note": "FOMO showed @BTCwolf SI buy at $23.2M MC (~16:54). DexScreener: Super Inu (SI) on Solana, MC ~$23.1M, top pair Meteora DLMM SI/SOL liq ~$796K; only SI near that MC (others <$2.4M).",
-      "price_updated": "2026-10-08 17:46:09"
+      "price_updated": "2026-10-08 17:54:41"
     }
   ],
   "trades": [
@@ -330,6 +330,6 @@
       "pnl_usd": -1.127404
     }
   ],
-  "last_run": "2026-10-08 17:45:00",
+  "last_run": "2026-10-08 17:54:00",
   "first_run": "2026-10-07 23:15:00"
 }
